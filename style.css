@@ -58,28 +58,10 @@ form label {
 form input {
     width: 100%;
     padding: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
-}
-
-form a {
-    background-color: black;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    padding: 12px;
-    border-radius: 6px;
-}
-
-footer {
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    padding: 16px;
 }
 
 form button {
@@ -98,7 +80,105 @@ form button:disabled {
     cursor: not-allowed;
 }
 
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 16px;
+}
+
+.erro {
+    display: block;
+    color: #ff8a80;
+    font-size: 0.85rem;
+    min-height: 1.2em;
+    margin-bottom: 8px;
+}
+
+/* ===== Página do uniforme ===== */
+
+.montagem {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.preview, .opcoes {
+    background-color: rgb(71, 71, 71);
+    color: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.preview svg {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    margin: 12px 0;
+    background-color: #d9d9d4;
+    border-radius: 10px;
+}
+
+.grupo {
+    margin-top: 14px;
+}
+
+.grupo p {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.opcao {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px 14px;
+    margin: 4px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    min-height: 44px;
+}
+
+.opcao:hover {
+    background-color: #333;
+}
+
+.opcao[aria-pressed="true"] {
+    outline: 3px solid white;
+    background-color: #333;
+}
+
+.campos-jogador {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.campos-jogador h2 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.campos-jogador label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+/* ===== Telas maiores (breakpoint 768px) ===== */
+
 @media (min-width: 768px) {
     header h1 { font-size: 1.8rem; }
     form { padding: 30px; }
+
+    .montagem {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
 }

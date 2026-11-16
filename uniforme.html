@@ -3,31 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajude o Maior</title>
-    <script src="script.js" defer></script>
+    <title>Monte seu uniforme</title>
+    <script src="uniforme.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="imagens/cor-icon.png" type="image/png">
-    
 </head>
 <body>
+
+    <!--
+
+    DESENHOS (SVG): feitos com ajuda de IA (Claude) a partir de fotos de referencia.
+      Cada peca tem 3 modelos: camisa-1/2/3, bermuda-1/2/3 e meiao-1/2/3.
+      So um modelo de cada peca fica visivel; o JavaScript (uniforme.js) liga e desliga.
+    LOGICA: uniforme.js (escolha dos modelos, frente/costas e validacao de nome e numero).
+
+    -->
 
     <header>
         <h1 id="titulo-pag">Ajude o Corinthians a montar o melhor uniforme da sua história!</h1>
     </header>
 
-    <nav>
+    <main class="montagem">
 
-    </nav>
+        <!-- COLUNA 1: PREVIEW -->
+        <section class="preview">
+            <h2 id="saudacao">Fala, Fiel!</h2>
 
-    <main>
-        
+            <!-- UNIFORME EM SVG (feito com ajuda de IA). Cada peca tem 3 modelos; o JS mostra so o escolhido. -->
+            <svg id="uniforme" viewBox="0 0 200 400" stroke-linejoin="round" role="img" aria-label="Uniforme montado">
+<defs>
+<path id="sw" d="M0 7 C1.5 12 6 14.2 10 13 C17 11 25 6 32 0 C24 4.5 16 8 9.5 8.2 C5 8.3 1.5 7.2 0 7Z"/>
+<g id="esc"><circle r="9" fill="none" stroke="currentColor" stroke-width="2.4"/><text y="2.6" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" font-family="Arial,sans-serif">cp</text></g>
+</defs>
+
+<!-- ########## CAMADA 1: CAMISAS (so uma fica visivel por vez) ########## -->
+
+<!-- ===== CAMISA 1: branca, estilo Topper/Batavo. Desenhada a mao em SVG por IA a partir da foto ===== -->
+<g id="camisa-1" display="none">
+<g transform="translate(28.7 6) scale(0.2) translate(-105 -48)"><path d="M557 49 L550 48 L512 63 L488 66 L426 64 L388 56 L372 49 L360 51 L340 67 L311 82 L207 122 L171 140 L151 159 L134 194 L118 277 L105 398 L110 402 L215 421 L219 417 L234 360 L240 357 L251 401 L258 480 L260 643 L251 773 L235 938 L244 949 L268 960 L311 969 L360 973 L476 975 L551 973 L600 969 L638 962 L664 951 L678 936 L679 924 L655 763 L648 668 L652 542 L663 465 L676 401 L687 362 L692 363 L704 430 L709 434 L762 435 L804 427 L815 421 L817 415 L815 370 L796 218 L787 186 L768 155 L750 138 L709 116 L601 80 L580 68Z" fill="#f6f6f4" stroke="#9a9a9a" stroke-width="5"/></g>
+<g class="so-frente">
+  <path d="M77 6.5 Q100 15 123 6.5 L129 14 L100 43 L71 14Z" fill="#151515"/>
+  <path d="M86 8.5 Q100 16 114 8.5 L100 32Z" fill="#f6f6f4"/>
+  <text x="100" y="100" font-size="19" font-weight="700" fill="#1b8bd0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" letter-spacing="-0.5">batavo</text>
+  <text x="68" y="41" font-size="4.6" font-weight="700" fill="#151515" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" >TOPPER</text>
+  <use href="#esc" transform="translate(129.0 47.0) scale(1.0)" color="#151515"/><image href="imagens/escudo.png" x="118" y="36" width="22" height="22" preserveAspectRatio="xMidYMid meet" onload="this.previousElementSibling.setAttribute('visibility','hidden')" onerror="this.remove()"/>
+</g>
+<g fill="none" stroke="#151515" stroke-linecap="round"><path d="M72 14 L52 62" stroke-width="0.9"/><path d="M128 14 L148 64" stroke-width="0.9"/>
+<path d="M29.5 75 L51 78.5" stroke-width="5.5"/><path d="M151 81.5 L172 79.5" stroke-width="5.5"/></g>
+</g>
+
+<!-- ===== CAMISA 2: preta com listras brancas, estilo Nike. Desenhada a mao em SVG por IA a partir da foto ===== -->
+<g id="camisa-2" display="none">
+<g transform="translate(28.7 6) scale(0.2) translate(-105 -48)"><path d="M557 49 L550 48 L512 63 L488 66 L426 64 L388 56 L372 49 L360 51 L340 67 L311 82 L207 122 L171 140 L151 159 L134 194 L118 277 L105 398 L110 402 L215 421 L219 417 L234 360 L240 357 L251 401 L258 480 L260 643 L251 773 L235 938 L244 949 L268 960 L311 969 L360 973 L476 975 L551 973 L600 969 L638 962 L664 951 L678 936 L679 924 L655 763 L648 668 L652 542 L663 465 L676 401 L687 362 L692 363 L704 430 L709 434 L762 435 L804 427 L815 421 L817 415 L815 370 L796 218 L787 186 L768 155 L750 138 L709 116 L601 80 L580 68Z" fill="#151515" stroke="#555" stroke-width="5"/></g>
+<g fill="none" stroke="#ffffff" stroke-width="1.3"><path d="M66 27 L66 189"/><path d="M75 27 L75 189"/><path d="M84 27 L84 189"/><path d="M93 27 L93 189"/><path d="M107 27 L107 189"/><path d="M116 27 L116 189"/><path d="M125 27 L125 189"/><path d="M134 27 L134 189"/>
+<path d="M40 44 L36 66"/><path d="M45 46 L42 70"/><path d="M160 44 L164 66"/><path d="M155 46 L158 70"/></g>
+<path d="M29.5 75.5 L51 78.5" stroke="#ffffff" stroke-width="5" fill="none"/><path d="M151 81.5 L172 79.5" stroke="#ffffff" stroke-width="5" fill="none"/>
+<path d="M78 6.5 Q100 15 122 6.5 L126 11 L100 38 L74 11Z" fill="#ffffff"/><path d="M87 8.5 Q100 15 113 8.5 L100 28Z" fill="#151515"/>
+<g class="so-frente">
+  <use href="#sw" transform="translate(63 35) scale(0.6)" fill="#ffffff"/>
+  <text x="100" y="80" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" >Esportes</text><text x="100" y="94" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" >da Sorte</text>
+  <text x="130" y="29" font-size="4.4" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" >Frimesa</text>
+  <use href="#esc" transform="translate(128.0 48.0) scale(1.0)" color="#ffffff"/><image href="imagens/escudo.png" x="117" y="37" width="22" height="22" preserveAspectRatio="xMidYMid meet" onload="this.previousElementSibling.setAttribute('visibility','hidden')" onerror="this.remove()"/>
+  <text x="0" y="0" font-size="6" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" transform="translate(37 56) rotate(-72)">bmg</text><text x="0" y="0" font-size="6" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" transform="translate(163 56) rotate(72)">bmg</text>
+</g>
+</g>
+
+<!-- ===== CAMISA 3: preta e laranja. Contorno tracado automaticamente da foto por IA ===== -->
+<g id="camisa-3" display="none">
+<g transform="translate(28.7 6) scale(0.2) translate(-105 -48)">
+<path d="M557 49 L550 48 L512 63 L488 66 L426 64 L388 56 L372 49 L360 51 L340 67 L311 82 L207 122 L171 140 L151 159 L134 194 L118 277 L105 398 L110 402 L215 421 L219 417 L234 360 L240 357 L251 401 L258 480 L260 643 L251 773 L235 938 L244 949 L268 960 L311 969 L360 973 L476 975 L551 973 L600 969 L638 962 L664 951 L678 936 L679 924 L655 763 L648 668 L652 542 L663 465 L676 401 L687 362 L692 363 L704 430 L709 434 L762 435 L804 427 L815 421 L817 415 L815 370 L796 218 L787 186 L768 155 L750 138 L709 116 L601 80 L580 68Z" fill="#151515" stroke="#555" stroke-width="5"/>
+<g fill="#ff8a3d" fill-rule="evenodd"><path d="M633 105 L632 94 L589 77 L556 51 L546 52 L531 60 L518 64 L493 68 L445 68 L417 65 L398 61 L375 52 L366 52 L331 76 L305 87 L299 93 L299 100 L326 91 L349 80 L355 80 L369 97 L389 112 L417 127 L435 134 L438 131 L437 128 L424 122 L407 109 L398 100 L399 93 L443 98 L521 93 L538 94 L538 101 L518 120 L494 132 L476 137 L478 140 L509 134 L532 124 L560 107 L566 101 L573 89 L588 90Z"/><path d="M649 724 L640 732 L613 743 L584 763 L492 798 L472 809 L465 809 L376 774 L368 773 L351 763 L345 763 L343 759 L298 737 L287 729 L284 729 L284 733 L304 746 L341 764 L346 764 L347 767 L361 774 L468 815 L598 762 L607 752 L643 736 L648 731Z"/><path d="M268 710 L269 717 L273 722 L276 722 L276 719Z"/><path d="M814 419 L769 430 L716 432 L718 434 L779 432 L811 424Z"/><path d="M109 397 L109 400 L159 411 L181 413 L209 420 L216 420 L217 418 L200 411 L161 406 L128 398Z"/><path d="M706 297 L703 312 L699 316 L694 329 L693 338 L699 336 L700 323 L703 322 L708 308 L706 306Z"/><path d="M736 142 L730 143 L736 147 L736 169 L732 198 L725 230 L708 286 L709 292 L712 292 L738 198 L742 145Z"/><path d="M663 113 L669 120 L692 128 L690 123Z"/><path d="M634 97 L634 105 L641 108 L643 105Z"/><path d="M298 94 L196 138 L194 185 L198 222 L218 305 L225 316 L227 314 L209 246 L200 188 L201 141 L218 130 L223 130 L264 112 L297 101Z"/></g>
+<g class="so-frente" fill="#ff8a3d" fill-rule="evenodd"><path d="M718 317 L723 326 L734 330 L747 340 L759 344 L788 372 L793 383 L815 405 L816 394 L811 349 L801 345 L782 332Z"/><path d="M335 179 L331 177 L321 178 L283 193 L277 193 L274 190 L274 181 L271 181 L263 193 L262 203 L266 208 L277 208 L304 192Z"/></g>
+</g>
+<g class="so-frente"><use href="#esc" transform="translate(127.5 49.8) scale(1.0)" color="#ff8a3d"/><image href="imagens/escudo.png" x="116.5" y="38.8" width="22" height="22" preserveAspectRatio="xMidYMid meet" onload="this.previousElementSibling.setAttribute('visibility','hidden')" onerror="this.remove()"/></g></g>
+
+<!-- ########## CAMADA 2: BERMUDAS ########## -->
+
+<!-- BERMUDA 1: branca -->
+<g id="bermuda-1" display="none"><path d="M61 196 L139 196 L148 262 L106 262 L100 230 L94 262 L52 262Z" fill="#f6f6f4" stroke="#9a9a9a"/><use href="#sw" transform="translate(66 203) scale(0.5)" fill="#151515"/><use href="#esc" transform="translate(129.5 205.5) scale(0.6818181818181818)" color="#151515"/><image href="imagens/escudo.png" x="122" y="198" width="15" height="15" preserveAspectRatio="xMidYMid meet" onload="this.previousElementSibling.setAttribute('visibility','hidden')" onerror="this.remove()"/></g>
+<!-- BERMUDA 2: preta -->
+<g id="bermuda-2" display="none"><path d="M61 196 L139 196 L148 262 L106 262 L100 230 L94 262 L52 262Z" fill="#151515" stroke="#555"/><use href="#sw" transform="translate(66 203) scale(0.5)" fill="#ffffff"/><use href="#esc" transform="translate(129.5 205.5) scale(0.6818181818181818)" color="#ffffff"/><image href="imagens/escudo.png" x="122" y="198" width="15" height="15" preserveAspectRatio="xMidYMid meet" onload="this.previousElementSibling.setAttribute('visibility','hidden')" onerror="this.remove()"/></g>
+<!-- BERMUDA 3: preta com detalhes laranja -->
+<g id="bermuda-3" display="none"><path d="M61 196 L139 196 L148 262 L106 262 L100 230 L94 262 L52 262Z" fill="#151515" stroke="#555"/>
+<path d="M61 197 L52.5 261 M139 197 L147.5 261 M61 197.5 L139 197.5" stroke="#ff8a3d" stroke-width="2" fill="none"/>
+<use href="#sw" transform="translate(66 205) scale(0.5)" fill="#ff8a3d"/><use href="#esc" transform="translate(129.5 206.5) scale(0.6818181818181818)" color="#ff8a3d"/><image href="imagens/escudo.png" x="122" y="199" width="15" height="15" preserveAspectRatio="xMidYMid meet" onload="this.previousElementSibling.setAttribute('visibility','hidden')" onerror="this.remove()"/></g>
+
+<!-- ########## CAMADA 3: MEIOES ########## -->
+
+<!-- MEIAO 1: branco, topo preto -->
+<g id="meiao-1" display="none"><rect x="64" y="270" width="24" height="104" rx="6" fill="#f6f6f4" stroke="#9a9a9a"/><path d="M64 276 Q64 270 70 270 L82 270 Q88 270 88 276 L88 293 L64 293Z" fill="#151515"/><use href="#sw" transform="translate(68 312) scale(0.5)" fill="#151515"/><text x="76" y="336" font-size="5.2" font-weight="700" fill="#151515" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" letter-spacing="0.4">SCCP</text><rect x="112" y="270" width="24" height="104" rx="6" fill="#f6f6f4" stroke="#9a9a9a"/><path d="M112 276 Q112 270 118 270 L130 270 Q136 270 136 276 L136 293 L112 293Z" fill="#151515"/><use href="#sw" transform="translate(116 312) scale(0.5)" fill="#151515"/><text x="124" y="336" font-size="5.2" font-weight="700" fill="#151515" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" letter-spacing="0.4">SCCP</text></g>
+<!-- MEIAO 2: preto, topo branco -->
+<g id="meiao-2" display="none"><rect x="64" y="270" width="24" height="104" rx="6" fill="#151515" stroke="#555"/><path d="M64 276 Q64 270 70 270 L82 270 Q88 270 88 276 L88 293 L64 293Z" fill="#f6f6f4"/><use href="#sw" transform="translate(68 312) scale(0.5)" fill="#ffffff"/><text x="76" y="336" font-size="5.2" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" letter-spacing="0.4">SCCP</text><rect x="112" y="270" width="24" height="104" rx="6" fill="#151515" stroke="#555"/><path d="M112 276 Q112 270 118 270 L130 270 Q136 270 136 276 L136 293 L112 293Z" fill="#f6f6f4"/><use href="#sw" transform="translate(116 312) scale(0.5)" fill="#ffffff"/><text x="124" y="336" font-size="5.2" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" letter-spacing="0.4">SCCP</text></g>
+<!-- MEIAO 3: preto, topo e detalhes laranja -->
+<g id="meiao-3" display="none"><rect x="64" y="270" width="24" height="104" rx="6" fill="#151515" stroke="#555"/><path d="M64 276 Q64 270 70 270 L82 270 Q88 270 88 276 L88 293 L64 293Z" fill="#ff8a3d"/><use href="#sw" transform="translate(68 312) scale(0.5)" fill="#ff8a3d"/><text x="76" y="336" font-size="5.2" font-weight="700" fill="#ff8a3d" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" letter-spacing="0.4">SCCP</text><rect x="112" y="270" width="24" height="104" rx="6" fill="#151515" stroke="#555"/><path d="M112 276 Q112 270 118 270 L130 270 Q136 270 136 276 L136 293 L112 293Z" fill="#ff8a3d"/><use href="#sw" transform="translate(116 312) scale(0.5)" fill="#ff8a3d"/><text x="124" y="336" font-size="5.2" font-weight="700" fill="#ff8a3d" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" letter-spacing="0.4">SCCP</text></g>
+
+<!-- CHUTEIRAS (fixas, aparecem sempre) -->
+<ellipse cx="74" cy="384" rx="17" ry="7" fill="#111"/><ellipse cx="126" cy="384" rx="17" ry="7" fill="#111"/>
+
+<!-- ########## COSTAS: nome e numero. O JS troca o texto e liga/desliga este grupo ########## -->
+<g id="costas" display="none" font-family="Arial,sans-serif" font-weight="700" text-anchor="middle">
+  <text id="txt-nome" x="100" y="62" font-size="12" fill="#151515">SEU NOME</text>
+  <text id="txt-numero" x="100" y="112" font-size="46" fill="#151515">00</text>
+</g>
+</svg>
+
+            <!-- Botao que alterna entre frente e costas (logica em uniforme.js) -->
+            <button id="btn-lado" type="button" class="opcao">Ver costas</button>
+        </section>
+
+        <!-- COLUNA 2: OPCOES -->
+        <section class="opcoes">
+            <!-- Cada botao usa data-kit ou data-peca + data-modelo; o JS le esses atributos ao clicar -->
+            <h2>Kits prontos</h2>
+            <div class="grupo">
+                <button type="button" class="opcao" data-kit="1">Kit 1 (branco)</button>
+                <button type="button" class="opcao" data-kit="2">Kit 2 (preto)</button>
+                <button type="button" class="opcao" data-kit="3">Kit 3 (laranja)</button>
+            </div>
+
+            <h2>Monte o seu</h2>
+
+            <div class="grupo">
+                <p>Camisa</p>
+                <button type="button" class="opcao" data-peca="camisa" data-modelo="1" aria-pressed="false">1 · Branca</button>
+                <button type="button" class="opcao" data-peca="camisa" data-modelo="2" aria-pressed="false">2 · Preta</button>
+                <button type="button" class="opcao" data-peca="camisa" data-modelo="3" aria-pressed="false">3 · Laranja</button>
+            </div>
+
+            <div class="grupo">
+                <p>Bermuda</p>
+                <button type="button" class="opcao" data-peca="bermuda" data-modelo="1" aria-pressed="false">1 · Branca</button>
+                <button type="button" class="opcao" data-peca="bermuda" data-modelo="2" aria-pressed="false">2 · Preta</button>
+                <button type="button" class="opcao" data-peca="bermuda" data-modelo="3" aria-pressed="false">3 · Laranja</button>
+            </div>
+
+            <div class="grupo">
+                <p>Meião</p>
+                <button type="button" class="opcao" data-peca="meiao" data-modelo="1" aria-pressed="false">1 · Branco</button>
+                <button type="button" class="opcao" data-peca="meiao" data-modelo="2" aria-pressed="false">2 · Preto</button>
+                <button type="button" class="opcao" data-peca="meiao" data-modelo="3" aria-pressed="false">3 · Laranja</button>
+            </div>
+
+            <!-- Nome e numero das costas, com validacao em tempo real -->
+            <div class="campos-jogador">
+                <h2>Nome e número nas costas</h2>
+
+                <label for="nome-camisa">Nome (2 a 12 letras)</label>
+                <input type="text" id="nome-camisa" maxlength="12" autocomplete="off">
+                <small class="erro" id="erro-nome-camisa"></small>
+
+                <label for="numero-camisa">Número (0 a 99)</label>
+                <input type="text" id="numero-camisa" maxlength="2" inputmode="numeric" autocomplete="off">
+                <small class="erro" id="erro-numero-camisa"></small>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-
         <p>&copy;Desenvolvido por Vinícius Ferreira | Vai Corinthians!</p>
-
     </footer>
-    
+
 </body>
 </html>
